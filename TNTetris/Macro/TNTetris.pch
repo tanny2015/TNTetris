@@ -1,0 +1,68 @@
+//
+//  TNTetris.pch
+//  TNTetris
+//
+//  Created by mac on 15/8/22.
+//  Copyright (c) 2015年 tanorigin. All rights reserved.
+//
+
+
+
+#ifndef TNTetris_TNTetris_pch
+#define TNTetris_TNTetris_pch
+
+#import "TNPixelView.h"
+#import "TNMovingView.h"
+#import "UIView+Extension.h"
+#import "TNDataStore.h"
+
+ 
+///////////////////   屏幕适配  //////////////////
+
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define screenH         ( [UIScreen mainScreen].bounds.size.height )
+#define screenW         ( [UIScreen mainScreen].bounds.size.width )
+#define navigationBarH    64
+#define SCREEN_MAX_LENGTH (MAX(screenW, screenH))
+#define SCREEN_MIN_LENGTH (MIN(screenW, screenH))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+
+
+//屏幕适配直接放在这边了。 这边只先做iphone4s的
+
+#if defined(IS_IPHONE_4_OR_LESS)
+#define backgroundViewW 250
+#define backgroundViewH 410
+#define backgroundViewX 10
+#define backgroundViewY 60
+
+//水平和竖直方向上的格子数总计
+#define gridCountHoriz  (backgroundViewW / pixelViewW)//水平方向
+#define gridCountVerti  (backgroundViewH / pixelViewH)//竖直方向
+
+#endif
+
+//语法糖
+#define  createPixelView(x, y) [TNPixelView createPixelViewWithPixX:x  PixY:y  andState:0]
+
+#define pixelViewArray(x,y)  [self pixelViewArrayWithIndexX:x andY:y] // self放这边看看有没有bug
+
+
+
+
+
+#define pixelViewW 10
+#define pixelViewH 10
+
+
+
+
+#endif
