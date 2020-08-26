@@ -5,7 +5,7 @@ TNTetris is one of classic games.
   
 
 Here is the simplified version,which enables   
-`Acceleration`、`Shape-Switching` and `Horizontal direction resizing`.   
+`Acceleration`、`Shape-Switching` and `Horizontal Movement`.   
   
   
     
